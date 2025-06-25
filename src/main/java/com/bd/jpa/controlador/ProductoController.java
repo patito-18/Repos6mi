@@ -69,7 +69,7 @@ public class ProductoController {
 		//eviamos al frmregproducto..
 		return "Vistas/FrmRegProducto";
 	}//fin del metodo edit
-	
+	/*
 	//creamos metodo eliminar
 	@GetMapping("eliminarproducto/{id}")
 	public String eliminar (@PathVariable("id")Integer idproducto,Model modelo ) {
@@ -84,5 +84,5 @@ public class ProductoController {
 		//redireccionamos
 		return "redirect:/vistas/ListadoProductos";
 	}//fin me . eliminar
-	
+	*/
 }//fin de la clase....
