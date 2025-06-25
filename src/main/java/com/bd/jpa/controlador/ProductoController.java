@@ -72,17 +72,17 @@ public class ProductoController {
 	
 	//creamos metodo eliminar
 	@GetMapping("eliminarproducto/{id}")
-	public String eliminar (@PathVariable("id")Integer idproducto, Model modelo ) {
+	public String eliminar (@PathVariable("id")Integer idproducto,Model modelo ) {
 		TblProducto tblpro=new TblProducto();
 		tblpro.setIdproducto(idproducto);
 		//aplicamos la inyeccion de dependencia..
 		iproductoservicio.EliminarProducto(tblpro);
 		//actualizamos el listado 
 		List<TblProducto> listado=iproductoservicio.ListadoProductos();
-				//enviamos hacia la vista 
-				modelo.addAttribute("listado", listado);
-				//redireccionamos
-				return "redirect:/Vistas/ListadoProductos";
+		//enviamos hacia la vista 
+		modelo.addAttribute("listado", listado);
+		//redireccionamos
+		return "redirect:/vistas/ListadoProductos";
 	}//fin me . eliminar
 	
 }//fin de la clase....
