@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Listado de productos</title>
+		<style>
+			html{
+				background-color: #c5dec9;
+			}
+		</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+
+	</head>
+	<body>
+		<h1 style="text-align: center;">Listado de productos</h1>
+		<h2  style="text-align: center;">
+			<a th:href="@{RegistrarProducto}" th:text="'nuevo registro'" 
+		title="crear un nuevo registro" class="btn btn-primary"></a>
+		</h2>
+		<table align="center" border="2">
+		<tr>
+			<th>Codigo</th>
+			<th>Producto</th>
+			<th>Precio</th>
+			<th>Cantidad</th>
+			<th>Total</th>
+			<th>Cod. Barras</th>
+			<th>Nro. Lote</th>
+			<th>fecha venc.</th>
+			<th>Acciones</th>
+		</tr>
+		<th:block th:each="p:${listado}">
+			<tr>
+				<td th:text="${p.idproducto}"></td>
+				<td th:text="${p.nomprod}"></td>
+				<td th:text="${p.precio}"></td>
+				<td th:text="${p.cantidad}"></td>
+				<td th:text="${p.total}"></td>
+				<td th:text="${p.codbarras}"></td>
+				<td th:text="${p.nrolote}"></td>
+				<td th:text="${#dates.format(p.fechaven,'dd-MM-yyy')}"></td>
+				<td>
+					<a th:href="@{editarproducto/}+${p.idproducto}" 
+					th:text="Editar" title="Editar Registro" class="btn btn-primary">				
+					</a>
+				</td>
+				<td>
+					<a th:href="@{eliminarproducto/}+${p.idproducto}" 
+					th:text="Eliminar" title="Eliminar Registro" class="btn btn-warning">	
+					</a>
+				</td>		
+			</tr>
+		</th:block>
+
+			</table>
+	</body>
+</html>

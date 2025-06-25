@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	
+	<head>
+		<title>Listado de productos</title>
+		<style>
+			html{
+				background-color: #c5dec9;
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+	</head>
+	<body>
+		<h1 align="center">
+			Registrar Productos
+		</h1>
+		
+		<form th:action="@{/vistas/GuardarProducto}" method="post" 
+	th:object="${regproducto}">
+		<table align="center" border="2">
+			<input type="hidden" th:field="*{idproducto}">
+			<tr>
+				<td>
+					producto
+				</td>
+				<td>
+					<input type="text" th:field="*{nomprod}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					precio
+				</td>
+				<td>
+					<input type="number" th:field="*{precio}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					cantidad
+				</td>
+				<td>
+					<input type="number" th:field="*{cantidad}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					total
+				</td>
+				<td>
+					<input type="number" th:field="*{total}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					codbarras
+				</td>
+				<td>
+					<input type="text" th:field="*{codbarras}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					nrolote
+				</td>
+				<td>
+					<input type="text" th:field="*{nrolote}">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					fechavencimiento
+				</td>
+				<td>
+					<input type="date" th:field="*{fechaven}">
+				</td>
+			</tr>
+			<tr>
+
+				<td colspan="2" align="center">
+					<input type="submit" value="registrar producto" class="btn btn-primary">
+				</td>
+			</tr>		
+</table>
+	</form>
+		
+	</body>
+	</html>
